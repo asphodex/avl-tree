@@ -52,7 +52,10 @@
 			},
 			"sourceIndexes" : 
 			[
-				0
+				0,
+				4,
+				5,
+				6
 			]
 		}
 	],
@@ -89,7 +92,10 @@
 			"name" : "Source Files",
 			"sourceIndexes" : 
 			[
-				0
+				0,
+				4,
+				5,
+				6
 			]
 		},
 		{
@@ -98,7 +104,10 @@
 			[
 				1,
 				2,
-				3
+				3,
+				7,
+				8,
+				9
 			]
 		}
 	],
@@ -112,17 +121,50 @@
 		},
 		{
 			"backtrace" : 1,
-			"path" : "AVL.h",
+			"path" : "src/include/avl_tree.h",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 1,
-			"path" : "LicensePlate.h",
+			"path" : "src/include/license_plate.h",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 1,
-			"path" : "app.h",
+			"path" : "src/include/app.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/menu.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/config.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/path.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "src/include/config.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "src/include/menu.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "src/include/path.h",
 			"sourceGroupIndex" : 1
 		}
 	],

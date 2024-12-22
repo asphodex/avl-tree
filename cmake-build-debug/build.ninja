@@ -55,6 +55,24 @@ build CMakeFiles/avl_tree.dir/main.cpp.obj: CXX_COMPILER__avl_tree_unscanned_Deb
   OBJECT_DIR = CMakeFiles\avl_tree.dir
   OBJECT_FILE_DIR = CMakeFiles\avl_tree.dir
 
+build CMakeFiles/avl_tree.dir/src/menu.cpp.obj: CXX_COMPILER__avl_tree_unscanned_Debug C$:/Projects/cpp/avl-tree/src/menu.cpp || cmake_object_order_depends_target_avl_tree
+  DEP_FILE = CMakeFiles\avl_tree.dir\src\menu.cpp.obj.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\avl_tree.dir
+  OBJECT_FILE_DIR = CMakeFiles\avl_tree.dir\src
+
+build CMakeFiles/avl_tree.dir/src/config.cpp.obj: CXX_COMPILER__avl_tree_unscanned_Debug C$:/Projects/cpp/avl-tree/src/config.cpp || cmake_object_order_depends_target_avl_tree
+  DEP_FILE = CMakeFiles\avl_tree.dir\src\config.cpp.obj.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\avl_tree.dir
+  OBJECT_FILE_DIR = CMakeFiles\avl_tree.dir\src
+
+build CMakeFiles/avl_tree.dir/src/path.cpp.obj: CXX_COMPILER__avl_tree_unscanned_Debug C$:/Projects/cpp/avl-tree/src/path.cpp || cmake_object_order_depends_target_avl_tree
+  DEP_FILE = CMakeFiles\avl_tree.dir\src\path.cpp.obj.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\avl_tree.dir
+  OBJECT_FILE_DIR = CMakeFiles\avl_tree.dir\src
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target avl_tree
@@ -63,7 +81,7 @@ build CMakeFiles/avl_tree.dir/main.cpp.obj: CXX_COMPILER__avl_tree_unscanned_Deb
 #############################################
 # Link the executable avl_tree.exe
 
-build avl_tree.exe: CXX_EXECUTABLE_LINKER__avl_tree_Debug CMakeFiles/avl_tree.dir/main.cpp.obj
+build avl_tree.exe: CXX_EXECUTABLE_LINKER__avl_tree_Debug CMakeFiles/avl_tree.dir/main.cpp.obj CMakeFiles/avl_tree.dir/src/menu.cpp.obj CMakeFiles/avl_tree.dir/src/config.cpp.obj CMakeFiles/avl_tree.dir/src/path.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\avl_tree.dir

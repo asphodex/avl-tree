@@ -11,17 +11,15 @@
 #include <cctype>
 #include <limits>
 #include <string>
-#include "AVL.h"
-#include "LicensePlate.h"
 
 template <typename TreeType, typename KeyType>
-class App {
+class app {
     static TreeType tree;
     static std::string menuText, getInputText, wrongInputText;
     int maxAction, minAction;
     void (*menu)(const int&, std::string&, int&);
 public:
-    App(const std::string &menuText, const std::string &getInputText, const std::string &wrongInputText, const TreeType &tree, void (*menu)(const int&, std::string&, int&), const int &maxAction, const int &minAction);
+    app(const std::string &menuText, const std::string &getInputText, const std::string &wrongInputText, const TreeType &tree, void (*menu)(const int&, std::string&, int&), const int &maxAction, const int &minAction);
 
     void start() const;
     static void showMenu();
@@ -36,27 +34,27 @@ public:
 };
 
 template <typename TreeType, typename KeyType>
-TreeType App<TreeType, KeyType>::tree;
+TreeType app<TreeType, KeyType>::tree;
 template <typename TreeType, typename KeyType>
-std::string App<TreeType, KeyType>::menuText;
+std::string app<TreeType, KeyType>::menuText;
 template <typename TreeType, typename KeyType>
-std::string App<TreeType, KeyType>::getInputText;
+std::string app<TreeType, KeyType>::getInputText;
 template <typename TreeType, typename KeyType>
-std::string App<TreeType, KeyType>::wrongInputText;
+std::string app<TreeType, KeyType>::wrongInputText;
 
 template <typename TreeType, typename KeyType>
-App<TreeType, KeyType>::App(const std::string &menuText, const std::string &getInputText, const std::string &wrongInputText, const TreeType &tree, void (*menu)(const int&, std::string&, int&), const int &maxAction, const int &minAction) {
-    App::menuText = menuText;
-    App::getInputText = getInputText;
-    App::wrongInputText = wrongInputText;
-    App::tree = tree;
+app<TreeType, KeyType>::app(const std::string &menuText, const std::string &getInputText, const std::string &wrongInputText, const TreeType &tree, void (*menu)(const int&, std::string&, int&), const int &maxAction, const int &minAction) {
+    app::menuText = menuText;
+    app::getInputText = getInputText;
+    app::wrongInputText = wrongInputText;
+    app::tree = tree;
     this->menu = menu;
     this->maxAction = maxAction;
     this->minAction = minAction;
 }
 
 template <typename TreeType, typename KeyType>
-void App<TreeType, KeyType>::start() const {
+void app<TreeType, KeyType>::start() const {
     showMenu();
     std::string key;
     int action = 0, id = 0;
@@ -68,22 +66,22 @@ void App<TreeType, KeyType>::start() const {
 }
 
 template <typename TreeType, typename KeyType>
-void App<TreeType, KeyType>::showMenu() {
+void app<TreeType, KeyType>::showMenu() {
     std::cout << menuText << std::endl;
 }
 
 template <typename TreeType, typename KeyType>
-void App<TreeType, KeyType>::showGetInputText() {
+void app<TreeType, KeyType>::showGetInputText() {
     std::cout << getInputText << std::endl;
 }
 
 template <typename TreeType, typename KeyType>
-void App<TreeType, KeyType>::showWrongInputText() {
+void app<TreeType, KeyType>::showWrongInputText() {
     std::cout << wrongInputText << std::endl;
 }
 
 template <typename TreeType, typename KeyType>
-void App<TreeType, KeyType>::handleAction(int &action) {
+void app<TreeType, KeyType>::handleAction(int &action) {
     std::cout << "Input: ";
     std::cin >> action;
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Очистка буфера ввода
@@ -91,22 +89,22 @@ void App<TreeType, KeyType>::handleAction(int &action) {
 }
 
 template <typename TreeType, typename KeyType>
-void App<TreeType, KeyType>::performPrint(void(TreeType::*print)() const) {
+void app<TreeType, KeyType>::performPrint(void(TreeType::*print)() const) {
      (tree.*print)();
 }
 
 template <typename TreeType, typename KeyType>
-void App<TreeType, KeyType>::performAction(void(TreeType::*action)(KeyType key, int id), const KeyType key, const int id) {
+void app<TreeType, KeyType>::performAction(void(TreeType::*action)(KeyType key, int id), const KeyType key, const int id) {
     (tree.*action)(key, id);
 }
 
 template <typename TreeType, typename KeyType>
-void App<TreeType, KeyType>::performAction(void (TreeType::*action)()) {
+void app<TreeType, KeyType>::performAction(void (TreeType::*action)()) {
     (tree.*action)();
 }
 
 template <typename TreeType, typename KeyType>
-void App<TreeType, KeyType>::loadDataFromFile(const std::string &pathToFile, void (TreeType::*clearTree)(), void (TreeType::*insert)(KeyType key, int id), bool (*isValid)(const std::string&), KeyType (*parseKeyType)(const std::string&)) {
+void app<TreeType, KeyType>::loadDataFromFile(const std::string &pathToFile, void (TreeType::*clearTree)(), void (TreeType::*insert)(KeyType key, int id), bool (*isValid)(const std::string&), KeyType (*parseKeyType)(const std::string&)) {
     if (pathToFile.empty()) {
         std::cerr << "Path to file is empty" << std::endl;
         return;
@@ -128,7 +126,7 @@ void App<TreeType, KeyType>::loadDataFromFile(const std::string &pathToFile, voi
 }
 
 template <typename TreeType, typename KeyType>
-void App<TreeType, KeyType>::saveTreeToFile(const std::string &pathToFile, void (TreeType::*traversal)() const) {
+void app<TreeType, KeyType>::saveTreeToFile(const std::string &pathToFile, void (TreeType::*traversal)() const) {
     if (pathToFile.empty()) {
         std::cerr << "Path to file is empty" << std::endl;
         return;
