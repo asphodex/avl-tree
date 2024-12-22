@@ -1,0 +1,27 @@
+# Menu
+Menu:
+1. Add an element to the tree
+2. Remove an element from the tree
+3. Print the tree
+4. Inorder traversal
+5. Preorder traversal
+6. Postorder traversal
+7. Reverse inorder traversal
+8. Print the menu again
+9. Load data from file
+10. Save tree to file
+11. Save tree with some traversals
+
+[!] For exit, enter any other number
+
+# Max action
+11
+
+# Min action
+1
+
+# Wrong input
+Invalid input. Please try again.
+
+# Get input
+Enter the license plate number with identifier (e.g. A123AA 1):
