@@ -1,8 +1,0 @@
-# ninja log v5
-1	2588	7565859662813145	CMakeFiles/avl_test.dir/main.cpp.obj	1df487055f2c2611
-5	358	7565860436659195	build.ninja	ad5e5ade08928ec
-2	308	7565860436659195	build.ninja	ad5e5ade08928ec
-7	1489	7565860453265295	CMakeFiles/avl_test.dir/src/config.cpp.obj	f8936822cce8d4a8
-14	1841	7565860456786102	CMakeFiles/avl_test.dir/src/path.cpp.obj	798c59eb71a37886
-21	2164	7565860460020374	CMakeFiles/avl_test.dir/src/menu.cpp.obj	a6547ac25dd19cc5
-2164	2457	7565860462916337	avl_test.exe	475a37c72e1e9625
