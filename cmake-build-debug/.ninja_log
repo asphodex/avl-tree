@@ -1,25 +1,8 @@
-# ninja log v6
-1127	1247	7565828142128286	avl_tree.exe	4329e4b7c2a193d8
-4	1538	7565838885917330	CMakeFiles/avl_tree.dir/main.cpp.obj	8919db0ff5df92d3
-8	52	7565826894194547	CMakeFiles/avl_tree.dir/src/env.cpp.obj	298757515647c723
-2	262	7565842855071960	build.ninja	df3105bc370366b8
-9	1351	7565838492368423	CMakeFiles/avl_tree.dir/src/menu.cpp.obj	5cf6d8ffca7f772a
-15	1016	7565838492438440	CMakeFiles/avl_tree.dir/src/path.cpp.obj	f161b8baa050c3e
-20	710	7565705201807559	CMakeFiles/avl_tree.dir/menu.cpp.obj	fc3de52b95fcef00
-8	814	7565838885957333	CMakeFiles/avl_tree.dir/src/config.cpp.obj	27e5034c8e157a3
-2	253	7565842855071960	build.ninja	df3105bc370366b8
-36	955	7565842856091959	CMakeFiles/avl_tree.dir/src/config.cpp.obj	27e5034c8e157a3
-14	994	7565846287185479	CMakeFiles/avl_tree.dir/src/path.cpp.obj	f161b8baa050c3e
-7	1176	7565846287115466	CMakeFiles/avl_tree.dir/main.cpp.obj	8919db0ff5df92d3
-11	1211	7565846287155471	CMakeFiles/avl_tree.dir/src/menu.cpp.obj	5cf6d8ffca7f772a
-1211	1392	7565846299155478	avl_tree.exe	a6b2bb90bbf4ce7a
-5	1260	7565846927720404	CMakeFiles/avl_tree.dir/src/menu.cpp.obj	5cf6d8ffca7f772a
-1260	1452	7565846940280430	avl_tree.exe	a6b2bb90bbf4ce7a
-4	1140	7565848300120972	CMakeFiles/avl_tree.dir/src/menu.cpp.obj	5cf6d8ffca7f772a
-1140	1323	7565848311481013	avl_tree.exe	a6b2bb90bbf4ce7a
-5	1143	7565848764221504	CMakeFiles/avl_tree.dir/src/menu.cpp.obj	5cf6d8ffca7f772a
-1144	1328	7565848775598158	avl_tree.exe	a6b2bb90bbf4ce7a
-5	1126	7565849090581643	CMakeFiles/avl_tree.dir/src/menu.cpp.obj	5cf6d8ffca7f772a
-1127	1310	7565849101801629	avl_tree.exe	a6b2bb90bbf4ce7a
-5	1316	7565849476405656	CMakeFiles/avl_tree.dir/src/menu.cpp.obj	5cf6d8ffca7f772a
-1316	1508	7565849489525128	avl_tree.exe	a6b2bb90bbf4ce7a
+# ninja log v5
+1	2588	7565859662813145	CMakeFiles/avl_test.dir/main.cpp.obj	1df487055f2c2611
+5	358	7565860436659195	build.ninja	ad5e5ade08928ec
+2	308	7565860436659195	build.ninja	ad5e5ade08928ec
+7	1489	7565860453265295	CMakeFiles/avl_test.dir/src/config.cpp.obj	f8936822cce8d4a8
+14	1841	7565860456786102	CMakeFiles/avl_test.dir/src/path.cpp.obj	798c59eb71a37886
+21	2164	7565860460020374	CMakeFiles/avl_test.dir/src/menu.cpp.obj	a6547ac25dd19cc5
+2164	2457	7565860462916337	avl_test.exe	475a37c72e1e9625
