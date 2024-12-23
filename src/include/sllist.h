@@ -6,6 +6,7 @@
 #define SLLIST_H
 
 #include <iostream>
+#include <ostream>
 
 // Данный модуль определяет односвязный кольцевой список
 
@@ -34,10 +35,12 @@ public:
     void print_with_id();
     SLList* copy();
     int count(T data);
-    int count();
+    int count() const;
     T get_first();
 
+
     Node* head = nullptr;
+    bool operator==(const SLList<T> &other) const;
 };
 
 
@@ -288,7 +291,7 @@ int SLList<T>::count(T data) {
 }
 
 template<typename T>
-int SLList<T>::count() {
+int SLList<T>::count() const {
     if (this->head == nullptr) {
         return 0;
     }
@@ -308,6 +311,27 @@ template<typename T>
 T SLList<T>::get_first() {
     return this->head->data;
 }
+
+template <typename T>
+bool SLList<T>::operator==(const SLList<T> &other) const {
+    if (count() != other.count()) return false;
+    if (this->head == nullptr && other.head == nullptr) return true;
+    if (this->head == nullptr && other.head == nullptr) return false;
+
+    SLList<T>::Node* currentThis = this->head;
+    SLList<T>::Node* currentOther = other.head;
+
+    do {
+        if (currentThis->data != currentOther->data) {
+            return false;
+        }
+        currentThis = currentThis->pNext;
+        currentOther = currentOther->pNext;
+    } while (currentThis != this->head && currentOther != other.head);
+
+    return true;
+}
+
 
 #endif //SLLIST_H
 

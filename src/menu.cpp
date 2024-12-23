@@ -9,25 +9,54 @@
 #include "include/license_plate.h"
 #include "include/path.h"
 
+void testIsEqual() {
+    AVLTree<license_plate> firstTree, secondTree;
+    firstTree.insert({'A', 123, 'A', 'A'}, 1);
+    firstTree.insert({'B', 123, 'A', 'A'}, 1);
+    firstTree.insert({'C', 123, 'A', 'A'}, 1);
+    firstTree.insert({'D', 123, 'A', 'A'}, 1);
+
+    secondTree.insert({'D', 123, 'A', 'A'}, 1);
+    secondTree.insert({'A', 123, 'A', 'A'}, 1);
+    secondTree.insert({'B', 123, 'A', 'A'}, 1);
+    secondTree.insert({'C', 123, 'A', 'A'}, 1);
+
+    if (firstTree == secondTree) {
+        std::cout << "equal" << std::endl;
+    } else {
+        std::cout << "not equal" << std::endl;
+    }
+}
+
+int counter = 0;
+
 void menu(const int& action, std::string& key, int& id) {
     switch (action) {
         case 1:
+        again_1:
+            app<AVLTree<license_plate>, license_plate>::showGetInputText();
+            std::cin >> key;
+
+            if (isValidLicensePlate(key)) {
+                const license_plate lp = parseLicensePlate(key);
+                ++counter;
+                app<AVLTree<license_plate>, license_plate>::performAction(&AVLTree<license_plate>::insert, lp, counter);
+            } else {
+                app<AVLTree<license_plate>, license_plate>::showWrongInputText();
+                goto again_1;
+            }
+            break;
         case 2:
-            again_:
+            again_2:
             app<AVLTree<license_plate>, license_plate>::showGetInputText();
             std::cin >> key >> id;
 
             if (isValidLicensePlate(key)) {
                 const license_plate lp = parseLicensePlate(key);
-
-                if (action == 1) {
-                    app<AVLTree<license_plate>, license_plate>::performAction(&AVLTree<license_plate>::insert, lp, id);
-                } else {
-                    app<AVLTree<license_plate>, license_plate>::performAction(&AVLTree<license_plate>::del, lp, id);
-                }
+                app<AVLTree<license_plate>, license_plate>::performAction(&AVLTree<license_plate>::del, lp, id);
             } else {
                 app<AVLTree<license_plate>, license_plate>::showWrongInputText();
-                goto again_;
+                goto again_2;
             }
             break;
         case 3:
@@ -58,6 +87,23 @@ void menu(const int& action, std::string& key, int& id) {
             app<AVLTree<license_plate>, license_plate>::saveTreeToFile(getSomeFilePath("output/in_order.txt"), &AVLTree<license_plate>::printInOrder);
             app<AVLTree<license_plate>, license_plate>::saveTreeToFile(getSomeFilePath("output/post_order.txt"), &AVLTree<license_plate>::printPostOrder);
             app<AVLTree<license_plate>, license_plate>::saveTreeToFile(getSomeFilePath("output/pre_order.txt"), &AVLTree<license_plate>::printPreOrder);
+            break;
+        case 12:
+            counter = 0;
+            app<AVLTree<license_plate>, license_plate>::performAction(&AVLTree<license_plate>::clear);
+            break;
+        case 13:
+        again_3:
+            app<AVLTree<license_plate>, license_plate>::showGetInputText();
+            std::cin >> key >> id;
+
+            if (isValidLicensePlate(key)) {
+                const license_plate lp = parseLicensePlate(key);
+                app<AVLTree<license_plate>, license_plate>::performAction(&AVLTree<license_plate>::search, lp, id);
+            } else {
+                app<AVLTree<license_plate>, license_plate>::showWrongInputText();
+                goto again_3;
+            }
             break;
         default:
             break;

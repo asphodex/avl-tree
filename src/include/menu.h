@@ -7,6 +7,7 @@
 
 #include <string>
 
+void testIsEqual();
 void menu(const int& action, std::string& key, int& id);
 
 #endif //MENU_H

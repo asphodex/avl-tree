@@ -11,11 +11,13 @@ Menu:
 9. Load data from file
 10. Save tree to file
 11. Save tree with some traversals
+12. Clear the tree
+13. Search the element
 
 [!] For exit, enter any other number
 
 # Max action
-11
+13
 
 # Min action
 1

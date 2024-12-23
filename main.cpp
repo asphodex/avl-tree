@@ -1,5 +1,4 @@
 #include <iostream>
-#include <fstream>
 #include <string>
 #include <map>
 
@@ -9,7 +8,6 @@
 #include "src/include/menu.h"
 #include "src/include/config.h"
 #include "src/include/path.h"
-
 
 int main() {
     try {
@@ -27,6 +25,4 @@ int main() {
         std::cerr << e.what() << std::endl;
         return 1;
     }
-
-    return 0;
 }

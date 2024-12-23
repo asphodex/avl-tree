@@ -27,6 +27,7 @@ class AVLTree {
     };
 
     Node *root = nullptr;
+    int nodesCount = 0;
 
     static int getHeight(const Node *node);
     static int balanceFactor(const Node *node);
@@ -34,7 +35,7 @@ class AVLTree {
     static Node* rightRotate(Node *node);
     static Node* leftRotate(Node *node);
     static Node* balance(Node *node);
-    static Node* insert(Node *node, T key, int id);
+    Node* insert(Node *node, T key, int id);
     static Node* findMinNode(Node *node);
     static Node* deleteMinNode(Node *node);
     static Node* deleteNode(Node *node, T key, int id);
@@ -46,6 +47,8 @@ class AVLTree {
     static void printPostOrder(Node *node);
     static void printReverseInOrder(Node *node);
     void clearTree(Node *node);
+    Node * searchNode(Node *node, T key, int id);
+    void inorderToArray(Node* node, T* keyArr, SLList<int>* listArr, int& index, int arrLength) const;
 
 public:
     void printTree() const;
@@ -56,6 +59,9 @@ public:
     void printPostOrder() const;
     void printReverseInOrder() const;
     void clear();
+    void search(T key, int id);
+    int getNodesCount() const;
+    bool operator==(const AVLTree<T> &other) const;
 };
 
 template <typename T>
@@ -169,7 +175,7 @@ typename AVLTree<T>::Node * AVLTree<T>::balance(Node *node) {
 
 template <typename T>
 typename AVLTree<T>::Node * AVLTree<T>::insert(Node *node, const T key, int id) {
-    if( !node ) { auto newNode = new Node(key); newNode->list.push_back(id); return newNode; }
+    if( !node ) { auto newNode = new Node(key); newNode->list.push_back(id); nodesCount += 1; return newNode; }
 
     /////////////////
     if (key == node->key) {
@@ -335,6 +341,13 @@ void AVLTree<T>::clearTree(Node *node) {
     delete node;
 }
 
+template <typename T>
+AVLTree<T>::Node * AVLTree<T>::searchNode(Node *node, T key, int id) {
+    if (node == nullptr || (node->key == key && node->list.count(id) > 0)) return node;
+    if (key < node->key)
+        return searchNode(node->left, key, id);
+    return searchNode(node->right, key, id);
+}
 
 // printTree печатает дерево полностью, игнорируя нулевые значения переданного типа
 template <typename T>
@@ -384,6 +397,74 @@ void AVLTree<T>::clear() {
     clearTree(this->root->right);
     delete this->root;
     this->root = nullptr;
+}
+
+template<typename T>
+void AVLTree<T>::search(T key, const int id){
+    auto node = searchNode(this->root, key, id);
+    if (node == nullptr) return;
+    std::cout << node->key;
+    node->list.print();
+}
+
+template<typename T>
+int AVLTree<T>::getNodesCount() const {
+    return nodesCount;
+}
+
+template<typename T>
+void AVLTree<T>::inorderToArray(Node* node, T* keyArr, SLList<int>* listArr, int& index, const int arrLength) const  {
+    if (node == nullptr || index >= arrLength) {
+        return;
+    }
+
+    inorderToArray(node->left, keyArr, listArr, index, arrLength);
+
+    if (index < arrLength) {
+        keyArr[index] = node->key;
+        listArr[index] = node->list;
+        index++;
+    }
+
+    inorderToArray(node->right, keyArr, listArr, index, arrLength);
+}
+
+template<typename T>
+bool AVLTree<T>::operator==(const AVLTree &other) const {
+    const int size1 = this->getNodesCount();
+    const int size2 = other.getNodesCount();
+
+    if (size1 != size2) {
+        return false;
+    }
+
+    T* keyArr1 = new T[size1];
+    auto* listArr1 = new SLList<int>[size1];
+    T* keyArr2 = new T[size2];
+    auto* listArr2 = new SLList<int>[size2];
+
+    int index1 = 0, index2 = 0;
+
+    inorderToArray(this->root, keyArr1, listArr1, index1, size1);
+
+    inorderToArray(other.root, keyArr2, listArr2, index2, size2);
+
+    for (int i = 0; i < size1; ++i) {
+        if (keyArr1[i] != keyArr2[i] || listArr1[i] != listArr2[i]) {
+            delete[] keyArr1;
+            delete[] listArr1;
+            delete[] keyArr2;
+            delete[] listArr2;
+            return false;
+        }
+    }
+
+    delete[] keyArr1;
+    delete[] listArr1;
+    delete[] keyArr2;
+    delete[] listArr2;
+
+    return true;
 }
 
 

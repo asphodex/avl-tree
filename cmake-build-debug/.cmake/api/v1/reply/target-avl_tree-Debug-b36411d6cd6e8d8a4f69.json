@@ -2,10 +2,10 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "avl_test.exe"
+			"path" : "avl_tree.exe"
 		},
 		{
-			"path" : "avl_test.pdb"
+			"path" : "avl_tree.pdb"
 		}
 	],
 	"backtrace" : 1,
@@ -59,7 +59,7 @@
 			]
 		}
 	],
-	"id" : "avl_test::@6890427a1f51a3e7e1df",
+	"id" : "avl_tree::@6890427a1f51a3e7e1df",
 	"link" : 
 	{
 		"commandFragments" : 
@@ -79,8 +79,8 @@
 		],
 		"language" : "CXX"
 	},
-	"name" : "avl_test",
-	"nameOnDisk" : "avl_test.exe",
+	"name" : "avl_tree",
+	"nameOnDisk" : "avl_tree.exe",
 	"paths" : 
 	{
 		"build" : ".",

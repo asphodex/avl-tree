@@ -119,7 +119,7 @@ void app<TreeType, KeyType>::loadDataFromFile(const std::string &pathToFile, voi
     while (std::getline(file, line)) {
         lineNumber++;
         if (isValid(line.substr(0, 6)))
-            performAction(insert, parseKeyType(line), std::stoi(line.substr(7, 7)));
+            performAction(insert, parseKeyType(line), lineNumber);
         else
             std::cerr << "Invalid license key at line " << lineNumber << ": " << line << std::endl;
     }
