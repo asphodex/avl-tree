@@ -13,11 +13,12 @@ Menu:
 11. Save tree with some traversals
 12. Clear the tree
 13. Search the element
+14. Test is equal
 
 [!] For exit, enter any other number
 
 # Max action
-13
+14
 
 # Min action
 1

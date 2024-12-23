@@ -16,7 +16,7 @@ void testIsEqual() {
     firstTree.insert({'C', 123, 'A', 'A'}, 1);
     firstTree.insert({'D', 123, 'A', 'A'}, 1);
 
-    secondTree.insert({'D', 123, 'A', 'A'}, 1);
+    secondTree.insert({'D', 123, 'A', 'A'}, 2);
     secondTree.insert({'A', 123, 'A', 'A'}, 1);
     secondTree.insert({'B', 123, 'A', 'A'}, 1);
     secondTree.insert({'C', 123, 'A', 'A'}, 1);
@@ -104,6 +104,9 @@ void menu(const int& action, std::string& key, int& id) {
                 app<AVLTree<license_plate>, license_plate>::showWrongInputText();
                 goto again_3;
             }
+            break;
+        case 14:
+            testIsEqual();
             break;
         default:
             break;
